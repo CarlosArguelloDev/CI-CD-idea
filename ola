@@ -1,0 +1,142 @@
+PROYECTO DE RESIDENCIAS
+
+Objetivo general:
+Desarrollar un sistema de medición y visualización de productividad para piso de producción, donde operadores, supervisores y gerencia puedan visualizar indicadores de desempeño en tiempo casi real mediante dashboards.
+
+Usuarios:
+
+1. Operador
+- Visualiza su productividad individual.
+
+2. Team Leader / Supervisor
+- Visualiza la productividad de toda su área o línea de producción.
+
+3. Gerencia
+- Visualiza indicadores globales y consolidación de todas las áreas.
+
+Fuentes de información:
+
+1. SAP
+- Contiene información relacionada con brands u órdenes de trabajo.
+- Cada brand tiene un tiempo estándar o tiempo esperado de ejecución.
+
+2. Lista de asistencia
+- Se utiliza para identificar qué personal estuvo presente durante el turno.
+
+3. Hoja o registro de minutos reportados
+- Se utiliza para calcular tiempos trabajados y productividad.
+
+Concepto de productividad:
+
+Cada brand tiene un tiempo estándar definido.
+
+Ejemplo:
+- Tiempo estándar: 40 minutos.
+- Tiempo real empleado: 60 minutos.
+
+En este caso el trabajador fue menos productivo porque tardó más que el tiempo esperado.
+
+Actualmente existe una medición de PP (%) basada en:
+
+PP (%) =
+Minutos Producidos / Minutos Disponibles
+
+Donde:
+
+Minutos disponibles = tiempo hombre disponible.
+
+Tiempo hombre:
+- Es el tiempo efectivamente trabajado por cada persona.
+
+Problemas identificados:
+
+1. Los registros de tiempo pueden afectar incorrectamente la productividad.
+
+Ejemplo:
+- Si un trabajador registra un tiempo como 2:01, el sistema puede interpretarlo de forma que afecte el cálculo de turnos o de minutos disponibles.
+- Esto provoca indicadores de productividad incorrectos.
+
+2. La productividad depende también de la cantidad de máquinas asignadas al operador.
+
+Actualmente no está completamente definido:
+- Cómo se calcula el impacto de múltiples máquinas.
+- Si existe una fórmula de ajuste.
+- Si el operador debe producir proporcionalmente más cuando atiende varias máquinas.
+
+Variables identificadas para el sistema:
+
+Empleado:
+- Número de empleado.
+- Nombre.
+- Nivel de práctica o expertise.
+- Estatus.
+
+Máquina:
+- Máquina asignada.
+- Área.
+- Posición.
+
+Producción:
+- Brand.
+- Tiempo estándar.
+- Tiempo real.
+- Minutos producidos.
+- Piezas producidas.
+
+Asistencia:
+- Fecha.
+- Turno.
+- Empleado.
+- Estatus (presente, ausente, etc.).
+
+Tiempo muerto (Downtime):
+- Minutos muertos.
+- Motivo.
+- Máquina relacionada.
+- Empleado relacionado.
+
+Datos observados en las pantallas actuales:
+
+- PP (%)
+- Produced Minutes
+- Produced Pieces
+- Cycle Time
+- Personal presente
+- Tiempo muerto
+- Grupo de producción
+- Turno
+- Workcenter
+- Nivel de práctica
+- Posición actual
+- Estatus
+
+Proceso actual:
+
+- La información parece obtenerse de SAP y otros registros operativos.
+- Parte de la captura de información podría realizarse manualmente.
+- Las actualizaciones aparentan realizarse aproximadamente cada 13 minutos.
+
+Preguntas aún pendientes por definir:
+
+1. Fórmula exacta utilizada actualmente para PP (%).
+2. Cómo afecta la cantidad de máquinas asignadas a la productividad.
+3. Qué tipos de downtime existen.
+4. Si el downtime debe descontarse del cálculo de productividad.
+5. Qué información se obtiene automáticamente desde SAP.
+6. Qué información se captura manualmente.
+7. Frecuencia exacta de actualización de datos.
+8. Indicadores finales que desea visualizar cada tipo de usuario.
+9. Si se requiere histórico diario, semanal y mensual.
+10. Reglas de negocio relacionadas con turnos y cálculo de tiempo disponible.
+
+Posible alcance del sistema:
+
+- Captura de asistencia.
+- Asignación de máquinas a operadores.
+- Gestión de nivel de práctica (expertise).
+- Registro de tiempos muertos.
+- Cálculo de productividad.
+- Dashboard para operadores.
+- Dashboard para supervisores.
+- Dashboard para gerencia.
+- Históricos y tendencias de productividad.
